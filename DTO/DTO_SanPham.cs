@@ -10,8 +10,8 @@ namespace DTO
     {
         protected string MaSP;
         protected string TenSP;
-        protected int MaDVT;
-        protected int MaDM;
+        protected string TenDVT;
+        protected string TenDM;
         protected string ThongSoDacTa;
         protected string NhaSX;
 
@@ -20,45 +20,45 @@ namespace DTO
 
         }
 
-        public DTO_SanPham(string MaSP, string TenSP, int MaDVT, int MaDM, string ThongSoDacTa, string NhaSX)
+        public DTO_SanPham(string MaSP, string TenSP, string TenDVT, string TenDM, string ThongSoDacTa, string NhaSX)
         {
             this.MaSP = MaSP;
             this.TenSP = TenSP;
-            this.MaDVT = MaDVT;
-            this.MaDM = MaDM;
+            this.TenDVT = TenDVT;
+            this.TenDM = TenDM;
             this.ThongSoDacTa = ThongSoDacTa;
             this.NhaSX = NhaSX;
         }
 
         public string MASP
         {
-            get { return MASP; }
-            set { MASP = value; }
+            get { return MaSP; }
+            set { MaSP = value; }
         }
         public string TENSP
         {
-            get { return TENSP; }
-            set { TENSP = value; }
+            get { return TenSP; }
+            set { TenSP = value; }
         }
-        public int MADVT
+        public string TENDVT
         {
-            get { return MADVT; }
-            set { MADVT = value; }
+            get { return TenDVT; }
+            set { TenDVT = value; }
         }
-        public int MADM
+        public string TENDM
         {
-            get { return MADM; }
-            set { MADM = value; }
+            get { return TenDM; }
+            set { TenDM = value; }
         }
         public string THONGSODACTA
         {
-            get { return THONGSODACTA; }
-            set { THONGSODACTA = value; }
+            get { return ThongSoDacTa; }
+            set { ThongSoDacTa = value; }
         }
         public string NHASX
         {
-            get { return NHASX; }
-            set { NHASX = value; }
+            get { return NhaSX; }
+            set { NhaSX = value; }
         }
     }
 }

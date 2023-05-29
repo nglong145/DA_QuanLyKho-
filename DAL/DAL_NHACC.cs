@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using DTO;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -88,6 +90,34 @@ namespace DAL
             };
             parm[0].Value = MaNhaCC;
             return (int)SqlHelper.ExecuteScalar(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_checkmancc", parm);
+        }
+
+        public IList<DTO_NhaCungCap> Search(string Word)
+        {
+            SqlParameter[] parm = new SqlParameter[]
+            {
+            new SqlParameter("@word", SqlDbType.NVarChar, 100)
+            };
+            parm[0].Value = Word;
+
+            SqlDataReader dataReader = SqlHelper.ExecuteReader(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_timncc", parm);
+
+            IList<DTO_NhaCungCap> list = new List<DTO_NhaCungCap>();
+
+            while (dataReader.Read())
+            {
+                DTO_NhaCungCap dtoncc = new DTO_NhaCungCap();
+                dtoncc.MANHACC = dataReader["MaNHaCC"].ToString();
+                dtoncc.TENNHACC = dataReader["TenNhaCC"].ToString();
+                dtoncc.MASOTHUE = dataReader["MaSoTHue"].ToString();
+                dtoncc.DIACHI = dataReader["DiaChi"].ToString();
+                dtoncc.SODT = dataReader["SoDT"].ToString();
+                dtoncc.EMAIL = dataReader["Email"].ToString();
+                list.Add(dtoncc);
+            }
+
+            dataReader.Dispose();
+            return list;
         }
     }
 }

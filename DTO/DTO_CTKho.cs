@@ -13,39 +13,62 @@ namespace DTO
         protected string MaKho;
         protected string MaSP;
         protected int SoLuong;
+        protected string TenKho;
+        protected string DiaChi;
+        protected string TenSP;
 
         public DTO_CTKho()
         {
 
         }
 
-        public DTO_CTKho(string MaCT_Kho, string MaKho, string MaSP, int SoLuong)
+        public DTO_CTKho(string MaCT_Kho, string MaKho, string MaSP, int SoLuong, string TenKho, string DiaChi, string TenSP)
         {
             this.MaCT_Kho = MaCT_Kho;
             this.MaKho = MaKho;
             this.MaSP = MaSP;
             this.SoLuong = SoLuong;
+            this.TenKho = TenKho;
+            this.DiaChi = DiaChi;
+            this.TenSP = TenSP;
         }
 
         public string MACT_KHO
         {
-            get { return MACT_KHO; }
-            set { MACT_KHO = value; }
+            get { return MaCT_Kho; }
+            set { MaCT_Kho = value; }
         }
         public string MAKHO
         {
-            get { return MAKHO; }
-            set { MAKHO = value; }
+            get { return MaKho; }
+            set { MaKho = value; }
         }
         public string MASP
         {
-            get { return MASP; }
-            set { MASP = value; }
+            get { return MaSP; }
+            set { MaSP = value; }
         }
         public int SOLUONG
         {
-            get { return SOLUONG; }
-            set { SOLUONG = value; }
+            get { return SoLuong; }
+            set { SoLuong = value; }
+        }
+
+        public string TENKHO
+        {
+            get { return TenKho; }
+            set { TenKho = value; }
+        }
+        public string DIACHI
+        {
+            get { return DiaChi; }
+            set { DiaChi = value; }
+        }
+
+        public string TENSP
+        {
+            get { return TenSP; }
+            set { TenSP = value; }
         }
     }
 }

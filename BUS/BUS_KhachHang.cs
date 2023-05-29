@@ -9,7 +9,7 @@ using DTO;
 using System.Security.Claims;
 using BUS.Interface;
 using DAL.Interface;
-//using DocumentFormat.OpenXml.Drawing.Charts;
+
 
 namespace BUS
 {
@@ -57,6 +57,12 @@ namespace BUS
             if (CheckMaKH(dtokh.MAKH) != 0)
                 return dalkh.Update(dtokh.MAKH, Tools.ChuanHoaXau(dtokh.TENKH), dtokh.DIACHI, dtokh.SODT);
             else return -1;
+        }
+
+        public IList<DTO_KhachHang> Search(string Word)
+        {
+            return dalkh.Search(Word);
+
         }
     }
 }

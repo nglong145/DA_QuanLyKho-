@@ -59,6 +59,7 @@
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.txbSearch = new System.Windows.Forms.ToolStripButton();
             this.tsbReset = new System.Windows.Forms.ToolStripButton();
+            this.txtWord = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -305,6 +306,7 @@
             this.tsbAdd,
             this.tsbUpdate,
             this.tsbDelete,
+            this.txtWord,
             this.txbSearch,
             this.tsbReset});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -357,6 +359,12 @@
             this.tsbReset.Size = new System.Drawing.Size(109, 29);
             this.tsbReset.Text = "Làm mới";
             this.tsbReset.Click += new System.EventHandler(this.tsbReset_Click);
+            // 
+            // txtWord
+            // 
+            this.txtWord.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtWord.Name = "txtWord";
+            this.txtWord.Size = new System.Drawing.Size(100, 34);
             // 
             // frmUser
             // 
@@ -413,5 +421,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clPermission;
         private System.Windows.Forms.ComboBox cboPermission;
         private System.Windows.Forms.ToolStripButton tsbReset;
+        private System.Windows.Forms.ToolStripTextBox txtWord;
     }
 }

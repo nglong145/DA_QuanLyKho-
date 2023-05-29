@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI
 {
@@ -17,12 +18,13 @@ namespace GUI
     {
         IBUS_NguoiDung busnd = new BUS_NguoiDung();
         private string quyen;
+        public string ten;
 
-        public frmMain(string quyen)
+        public frmMain(string quyen, string ten)
         {
             InitializeComponent();
             this.quyen = quyen;
-
+            this.ten = ten;
         }
         private void tsmLogout_Click(object sender, EventArgs e)
         {
@@ -127,7 +129,28 @@ namespace GUI
             }
         }
 
-        private void tsb_Click(object sender, EventArgs e)
+        private void tsbImport_Click(object sender, EventArgs e)
+        {
+            bool inExists = false;
+            foreach (Form f in this.MdiChildren)
+            {
+                if (f.Name == "frmImport")
+                {
+                    f.Activate();
+                    inExists = true;
+                    break;
+                }
+            }
+            if (!inExists)
+            {
+                frmImport ipo = new frmImport(ten);
+                ipo.MdiParent = this;
+                ipo.Dock = DockStyle.None;
+                ipo.Show();
+            }
+        }
+
+        private void tsbWareHouse_Click(object sender, EventArgs e)
         {
             bool inExists = false;
             foreach (Form f in this.MdiChildren)
@@ -141,10 +164,52 @@ namespace GUI
             }
             if (!inExists)
             {
-                frmWareHouse suplier = new frmWareHouse();
-                suplier.MdiParent = this;
-                suplier.Dock = DockStyle.None;
-                suplier.Show();
+                frmWareHouse wh = new frmWareHouse();
+                wh.MdiParent = this;
+                wh.Dock = DockStyle.None;
+                wh.Show();
+            }
+        }
+
+        private void tsbExport_Click(object sender, EventArgs e)
+        {
+            bool inExists = false;
+            foreach (Form f in this.MdiChildren)
+            {
+                if (f.Name == "frmExport")
+                {
+                    f.Activate();
+                    inExists = true;
+                    break;
+                }
+            }
+            if (!inExists)
+            {
+                frmExport ex = new frmExport(ten);
+                ex.MdiParent = this;
+                ex.Dock = DockStyle.None;
+                ex.Show();
+            }
+        }
+
+        private void tsbProduct_Click(object sender, EventArgs e)
+        {
+            bool inExists = false;
+            foreach (Form f in this.MdiChildren)
+            {
+                if (f.Name == "frmProduct")
+                {
+                    f.Activate();
+                    inExists = true;
+                    break;
+                }
+            }
+            if (!inExists)
+            {
+                frmProduct pr = new frmProduct();
+                pr.MdiParent = this;
+                pr.Dock = DockStyle.None;
+                pr.Show();
             }
         }
     }

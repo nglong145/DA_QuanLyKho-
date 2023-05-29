@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using DTO;
 
 namespace DAL
 {
@@ -12,8 +13,7 @@ namespace DAL
         int Delete(string MaNhaCC);
         int Update(string MaNhaCC, string TenNhaCC, string MaSoThue, string DiaChi, string SDT, string Email);
         DataTable GetList();
-        //DataTable getClass_ID(int classID);
-        //int getclassID_Last();
+        IList<DTO_NhaCungCap> Search(string Word);
         int CheckMaNhaCC(string MaNhaCC);
     }
 }

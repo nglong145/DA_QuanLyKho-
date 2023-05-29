@@ -33,6 +33,7 @@
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.txtWord = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearch = new System.Windows.Forms.ToolStripButton();
             this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -69,6 +70,7 @@
             this.tsbAdd,
             this.tsbUpdate,
             this.tsbDelete,
+            this.txtWord,
             this.tsbSearch,
             this.tsbRefresh});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -91,7 +93,7 @@
             this.tsbUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbUpdate.Image")));
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(222, 33);
+            this.tsbUpdate.Size = new System.Drawing.Size(222, 29);
             this.tsbUpdate.Text = "Cập nhật nhà cung cấp";
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
@@ -100,25 +102,32 @@
             this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
             this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(182, 33);
+            this.tsbDelete.Size = new System.Drawing.Size(182, 29);
             this.tsbDelete.Text = "Xóa nhà cung cấp";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
+            // 
+            // txtWord
+            // 
+            this.txtWord.Name = "txtWord";
+            this.txtWord.Size = new System.Drawing.Size(100, 34);
             // 
             // tsbSearch
             // 
             this.tsbSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearch.Image")));
             this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSearch.Name = "tsbSearch";
-            this.tsbSearch.Size = new System.Drawing.Size(112, 33);
+            this.tsbSearch.Size = new System.Drawing.Size(112, 29);
             this.tsbSearch.Text = "Tìm kiếm";
+            this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
             // tsbRefresh
             // 
             this.tsbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
             this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRefresh.Name = "tsbRefresh";
-            this.tsbRefresh.Size = new System.Drawing.Size(109, 33);
+            this.tsbRefresh.Size = new System.Drawing.Size(109, 29);
             this.tsbRefresh.Text = "Làm mới";
+            this.tsbRefresh.Click += new System.EventHandler(this.tsbRefresh_Click);
             // 
             // groupBox1
             // 
@@ -376,5 +385,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn clPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn clEmail;
+        private System.Windows.Forms.ToolStripTextBox txtWord;
     }
 }

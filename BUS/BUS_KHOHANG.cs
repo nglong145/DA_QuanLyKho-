@@ -17,10 +17,10 @@ namespace BUS
     {
         private readonly IDAL_KHOHANG dalkho = new DAL_KHOHANG();
 
-        //public int CheckMaKH(string MaKH)
-        //{
-        //    return dalkh.CheckMaKH(MaKH);
-        //}
+        public int CheckMaKho(string MaKho)
+        {
+            return dalkho.CheckMaKho(MaKho);
+        }
 
         public IList<DTO_Kho> GetList()
         {
@@ -32,33 +32,36 @@ namespace BUS
                 dtokho.MAKHO = row.Field<string>(0);
                 dtokho.TENKHO = row.Field<string>(1);
                 dtokho.DIACHI = row.Field<string>(2);
-                dtokho.MACT_KHO = row.Field<string>(3);
-                dtokho.MASP = row.Field<string>(4);
-                dtokho.SOLUONG = row.Field<int>(5);
                 list.Add(dtokho);
             }
             return list;
         }
         public int Insert(DTO_Kho dtokho)
         {
-            //if (CheckMaKH(dtokh.MAKH) == 0)
-                return dalkho.Insert(dtokho.MAKHO, Tools.ChuanHoaXau(dtokho.TENKHO), dtokho.DIACHI, dtokho.MACT_KHO, dtokho.MASP, dtokho.SOLUONG);
-            //else return -1;
+            if (CheckMaKho(dtokho.MAKHO) == 0)
+                return dalkho.Insert(dtokho.MAKHO, Tools.ChuanHoaXau(dtokho.TENKHO), dtokho.DIACHI);
+            else return -1;
 
         }
 
         public int Delete(string MaKho)
         {
-            //if (CheckMaKH(MaKH) != 0)
+            if (CheckMaKho(MaKho) != 0)
                 return dalkho.Delete(MaKho);
-            //else return -1;
+            else return -1;
         }
 
         public int Update(DTO_Kho dtokho)
         {
-            //if (CheckMaKH(dtokh.MAKH) != 0)
-                return dalkho.Update(dtokho.MAKHO, Tools.ChuanHoaXau(dtokho.TENKHO), dtokho.DIACHI, dtokho.MACT_KHO, dtokho.MASP, dtokho.SOLUONG);
-            //else return -1;
+            if (CheckMaKho(dtokho.MAKHO) != 0)
+                return dalkho.Update(dtokho.MAKHO, Tools.ChuanHoaXau(dtokho.TENKHO), dtokho.DIACHI);
+            else return -1;
+        }
+
+        public IList<DTO_Kho> Search(string Word)
+        {
+            return dalkho.Search(Word);
+
         }
     }
 }

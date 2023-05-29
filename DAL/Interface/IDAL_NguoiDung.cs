@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using DTO;
 
 namespace DAL
 {
@@ -14,10 +15,12 @@ namespace DAL
         int Delete(string MaND);
         int Update(string MaND, string TenND, string SoDT, string Email, string TaiKhoan, string MatKhau, string TrangThai);
         DataTable GetList();
-        //DataTable getClass_ID(int classID);
-        //int getclassID_Last();
+
+        IList<DTO_NguoiDung> Search(string Word);
         int CheckMaND(string MaND);
         int CheckTaiKhoan(string TaiKhoan);
         string GetQuyen(string TaiKhoan, string MatKHau);
+
+        string GetName(string TaiKhoan, string MatKHau);
     }
 }

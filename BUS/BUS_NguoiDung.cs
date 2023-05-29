@@ -34,6 +34,11 @@ namespace BUS
             return dalnd.GetQuyen(TaiKhoan, MatKhau);
         }
 
+        public string GetName(string TaiKhoan, string MatKhau)
+        {
+            return dalnd.GetName(TaiKhoan, MatKhau);
+        }
+
         public IList<DTO_NguoiDung> GetList()
         {
             System.Data.DataTable table = dalnd.GetList();
@@ -72,6 +77,12 @@ namespace BUS
             if (CheckMaND(dtond.MAND) != 0)
                 return dalnd.Update(dtond.MAND, Tools.ChuanHoaXau(dtond.TENND), dtond.SODT, dtond.EMAIL, dtond.TAIKHOAN, dtond.MATKHAU, dtond.TRANGTHAI);
             else return -1;
+        }
+
+        public IList<DTO_NguoiDung> Search(string Word)
+        {
+            return dalnd.Search(Word);
+
         }
     }
 }

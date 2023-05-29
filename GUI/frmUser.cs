@@ -107,7 +107,9 @@ namespace GUI
 
         private void txbSearch_Click(object sender, EventArgs e)
         {
-            
+            string Word = txtWord.Text;
+            IList<DTO_NguoiDung> list = busnd.Search(Word);
+            dgvUser.DataSource = list;
         }
 
         private void tsbTextBox_TextChanged(object sender, EventArgs e)
@@ -124,6 +126,8 @@ namespace GUI
             txtUserName.Text = "";
             txtPassWord.Text = "";
             cboPermission.Text = "";
+            txtWord.Text = "";
+            frmUser_Load(sender, e);
         }
 
         private void cboPermission_SelectedIndexChanged(object sender, EventArgs e)

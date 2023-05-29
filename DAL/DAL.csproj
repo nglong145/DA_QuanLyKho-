@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,17 +53,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_BIL.cs" />
+    <Compile Include="DAL_CTHDNHAP.cs" />
+    <Compile Include="DAL_CTHDXUAT.cs" />
+    <Compile Include="DAL_CTKHO.cs" />
     <Compile Include="DAL_DonViTinh.cs" />
+    <Compile Include="DAL_HDNhap.cs" />
+    <Compile Include="DAL_HDXUAT.cs" />
     <Compile Include="DAL_KhachHang.cs" />
     <Compile Include="DAL_KHOHANG.cs" />
     <Compile Include="DAL_NguoiDung.cs" />
     <Compile Include="DAL_NHACC.cs" />
+    <Compile Include="DAL_SANPHAM.cs" />
     <Compile Include="Helper\SqlHelper.cs" />
+    <Compile Include="Interface\IDAL_BILL.cs" />
+    <Compile Include="Interface\IDAL_CTHDNHAP.cs" />
+    <Compile Include="Interface\IDAL_CTHDXUAT.cs" />
+    <Compile Include="Interface\IDAL_CTKHO.cs" />
     <Compile Include="Interface\IDAL_DonViTinh.cs" />
+    <Compile Include="Interface\IDAL_HDNHAP.cs" />
+    <Compile Include="Interface\IDAL_HDXUAT.cs" />
     <Compile Include="Interface\IDAL_KhachHang.cs" />
     <Compile Include="Interface\IDAL_KHOHANG.cs" />
     <Compile Include="Interface\IDAL_NguoiDung.cs" />
     <Compile Include="Interface\IDAL_NHACC.cs" />
+    <Compile Include="Interface\IDAL_SANPHAM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

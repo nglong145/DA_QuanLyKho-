@@ -50,6 +50,7 @@
             this.clCusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtWord = new System.Windows.Forms.ToolStripTextBox();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,6 +64,7 @@
             this.tsbAdd,
             this.tsbUpdate,
             this.tsbDelete,
+            this.txtWord,
             this.tsbSearch,
             this.tsbReset});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -105,6 +107,7 @@
             this.tsbSearch.Name = "tsbSearch";
             this.tsbSearch.Size = new System.Drawing.Size(112, 29);
             this.tsbSearch.Text = "Tìm kiếm";
+            this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
             // tsbReset
             // 
@@ -113,6 +116,7 @@
             this.tsbReset.Name = "tsbReset";
             this.tsbReset.Size = new System.Drawing.Size(109, 29);
             this.tsbReset.Text = "Làm mới";
+            this.tsbReset.Click += new System.EventHandler(this.tsbReset_Click);
             // 
             // groupBox1
             // 
@@ -133,7 +137,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin khách hàng";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtPhone
             // 
@@ -264,6 +267,12 @@
             this.clAddress.MinimumWidth = 8;
             this.clAddress.Name = "clAddress";
             // 
+            // txtWord
+            // 
+            this.txtWord.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtWord.Name = "txtWord";
+            this.txtWord.Size = new System.Drawing.Size(100, 34);
+            // 
             // frmCustommer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -272,7 +281,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCustommer";
             this.ShowIcon = false;
@@ -314,5 +323,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn clAddress;
         private System.Windows.Forms.ToolStripButton tsbReset;
+        private System.Windows.Forms.ToolStripTextBox txtWord;
     }
 }

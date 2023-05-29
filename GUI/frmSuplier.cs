@@ -101,5 +101,22 @@ namespace GUI
             txtPhone.Text = dgvSuplier[4, dgvSuplier.CurrentCell.RowIndex].Value.ToString();
             txtEmail.Text = dgvSuplier[5, dgvSuplier.CurrentCell.RowIndex].Value.ToString();
         }
+
+        private void tsbRefresh_Click(object sender, EventArgs e)
+        {
+            txtSupId.Text = "";
+            txtSupName.Text = "";
+            txtTaxCode.Text = "";
+            txtAddress.Text = "";
+            txtPhone.Text = "";
+            txtEmail.Text = "";
+        }
+
+        private void tsbSearch_Click(object sender, EventArgs e)
+        {
+            string Word = txtWord.Text;
+            IList<DTO_NhaCungCap> list = busncc.Search(Word);
+            dgvSuplier.DataSource = list;
+        }
     }
 }

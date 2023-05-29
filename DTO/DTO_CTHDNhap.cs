@@ -8,13 +8,13 @@ namespace DTO
 {
     public class DTO_CTHDNhap
     {
-        protected string MaCT_HDNhap;
+        protected string MaCTHDNhap;
         protected string MaHDNhap;
-        protected string MaSP;
-        protected string MaKho;
+        protected string TenSP;
+        protected string TenKho;
+        protected string TenDVT;
         protected int SLNhap;
-        protected float GiaNhap;
-        protected float ChietKhau;
+        protected int GiaNhap;
 
 
         public DTO_CTHDNhap()
@@ -22,51 +22,52 @@ namespace DTO
 
         }
 
-        public DTO_CTHDNhap(string MaCT_HDNhap, string MaHDNhap, string MaSP, string MaKho, int SLNhap, float GiaNhap, float ChietKhau)
+        public DTO_CTHDNhap(string MaCTHDNhap, string MaHDNhap, string MaSP, string TenKho, string TenDVT, int SLNhap, int GiaNhap  )
         {
-            this.MaCT_HDNhap = MaCT_HDNhap;
+            this.MaCTHDNhap = MaCTHDNhap;
             this.MaHDNhap = MaHDNhap;
-            this.MaSP = MaSP;
-            this.MaKho = MaKho;
+            this.TenSP = MaSP;
+            this.TenKho = TenKho;
+            this.TenDVT = TenDVT;
             this.SLNhap = SLNhap;
             this.GiaNhap = GiaNhap;
-            this.ChietKhau = ChietKhau;
         }
 
-        public string MACT_HDNHAP
+        public string MACTHDNHAP
         {
-            get { return MACT_HDNHAP; }
-            set { MACT_HDNHAP = value; }
+            get { return MaCTHDNhap; }
+            set { MaCTHDNhap = value; }
         }
         public string MAHDNHAP
         {
-            get { return MAHDNHAP; }
-            set { MAHDNHAP = value; }
+            get { return MaHDNhap; }
+            set { MaHDNhap = value; }
         }
-        public string MASP
+        public string TENSP
         {
-            get { return MASP; }
-            set { MASP = value; }
+            get { return TenSP; }
+            set { TenSP = value; }
         }
-        public string MAKHO
+        public string TENKHO
         {
-            get { return MAKHO; }
-            set { MAKHO = value; }
+            get { return TenKho; }
+            set { TenKho = value; }
+        }
+
+        public string TENDVT
+        {
+            get { return TenDVT; }
+            set { TenDVT = value; }
         }
         public int SLNHAP
         {
-            get { return SLNHAP; }
-            set { SLNHAP = value; }
+            get { return SLNhap; }
+            set { SLNhap = value; }
         }
-        public float GIANHAP
+        public int GIANHAP
         {
-            get { return GIANHAP; }
-            set { GIANHAP = value; }
-        }
-        public float CHIETKHAU 
-        {
-            get { return CHIETKHAU; }
-            set { CHIETKHAU = value; }
+            get { return GiaNhap; }
+            set { GiaNhap = value; }
         }
     }
 }

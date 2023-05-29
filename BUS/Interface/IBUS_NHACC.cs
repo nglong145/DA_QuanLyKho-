@@ -12,13 +12,8 @@ namespace BUS
         int Delete(string MaNhaCC);
         int Update(DTO_NhaCungCap dtoncc);
         IList<DTO_NhaCungCap> GetList();
-        //Class getClass_ID(int classID);
-        //anh phong dep trai
-        //int getclassID_Last();
+        IList<DTO_NhaCungCap> Search(string Word);
         int CheckMaNhaCC(string MaNhaCC);
 
-        //IList<Class> Search(Class cls);
-        //IList<Class> SearchLinq(Class cls);
-        //void KetXuatWord(int ClassID, string templatePath, string exportPath);
     }
 }

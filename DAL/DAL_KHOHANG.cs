@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Security.Cryptography;
+using DTO;
 
 namespace DAL
 {
@@ -13,27 +14,19 @@ namespace DAL
         private const string PARM_MAKHO = "@makho";
         private const string PARM_TENKHO = "@tenkho";
         private const string PARM_DIACHI = "@diachi";
-        private const string PARM_MACTKHO = "@mactk";
-        private const string PARM_MASP = "@masp";
-        private const string PARM_SOLUONG = "@sluong";
 
-        public int Insert(string MaKho, string TenKho, string DiaChi, string MaCTKho, string MaSP, int SoLuong)
+        public int Insert(string MaKho, string TenKho, string DiaChi)
         {
             SqlParameter[] parm = new SqlParameter[]
             {
                 new SqlParameter(PARM_MAKHO,SqlDbType.Char,10),
                 new SqlParameter(PARM_TENKHO,SqlDbType.NVarChar,50),
-                new SqlParameter(PARM_DIACHI,SqlDbType.Char,10),
-                new SqlParameter(PARM_MACTKHO,SqlDbType.Char,50),
-                new SqlParameter(PARM_MASP,SqlDbType.Char,30),
-                new SqlParameter(PARM_SOLUONG,SqlDbType.Char,30),
+                new SqlParameter(PARM_DIACHI,SqlDbType.NVarChar,100),
             };
             parm[0].Value = MaKho;
             parm[1].Value = TenKho;
             parm[2].Value = DiaChi;
-            parm[3].Value = MaCTKho;
-            parm[4].Value = MaSP;
-            parm[5].Value = SoLuong;
+
             return SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_themkho", parm);
         }
 
@@ -48,23 +41,17 @@ namespace DAL
             return SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_xoakho", parm);
         }
 
-        public int Update(string MaKho, string TenKho, string DiaChi, string MaCTKho, string MaSP, int SoLuong)
+        public int Update(string MaKho, string TenKho, string DiaChi)
         {
             SqlParameter[] parm = new SqlParameter[]
             {
                 new SqlParameter(PARM_MAKHO,SqlDbType.Char,10),
                 new SqlParameter(PARM_TENKHO,SqlDbType.NVarChar,50),
-                new SqlParameter(PARM_DIACHI,SqlDbType.Char,10),
-                new SqlParameter(PARM_MACTKHO,SqlDbType.Char,50),
-                new SqlParameter(PARM_MASP,SqlDbType.Char,30),
-                new SqlParameter(PARM_SOLUONG,SqlDbType.Char,30),
+                new SqlParameter(PARM_DIACHI,SqlDbType.NVarChar,100),
             };
             parm[0].Value = MaKho;
             parm[1].Value = TenKho;
             parm[2].Value = DiaChi;
-            parm[3].Value = MaCTKho;
-            parm[4].Value = MaSP;
-            parm[5].Value = SoLuong;
             return SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_suakho", parm);
         }
 
@@ -75,27 +62,49 @@ namespace DAL
             table.Columns.Add("MaKho", typeof(string));
             table.Columns.Add("TenKho", typeof(string));
             table.Columns.Add("DiaChi", typeof(string));
-            table.Columns.Add("MaCT_Kho", typeof(string));
-            table.Columns.Add("MaSP", typeof(string));
-            table.Columns.Add("SoLuong", typeof(int));
             while (dra.Read())
             {
-                table.Rows.Add(dra["MaKho"].ToString(), dra["TenKho"].ToString(), dra["DiaChi"].ToString(), dra["MaCT_Kho"].ToString(), dra["MaSP"].ToString(), dra["SoLuong"]);
+                table.Rows.Add(dra["MaKho"].ToString(), dra["TenKho"].ToString(), dra["DiaChi"].ToString());
             }
             dra.Dispose();
             return table;
         }
 
-        //public int CheckMaND(string MaND)
-        //{
-        //    SqlParameter[] parm = new SqlParameter[]
-        //    {
-        //        new SqlParameter(PARM_MAKHO,SqlDbType.Char,10)
-        //    };
-        //    parm[0].Value = MaND;
-        //    return (int)SqlHelper.ExecuteScalar(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_checkmand", parm);
-        //}l
+        public int CheckMaKho(string MaKho)
+        {
+            SqlParameter[] parm = new SqlParameter[]
+            {
+                new SqlParameter(PARM_MAKHO,SqlDbType.Char,10)
+            };
+            parm[0].Value = MaKho;
+            return (int)SqlHelper.ExecuteScalar(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_checkmakho", parm);
+        }
 
-    
+        public IList<DTO_Kho> Search(string Word)
+        {
+            SqlParameter[] parm = new SqlParameter[]
+            {
+            new SqlParameter("@word", SqlDbType.NVarChar, 100)
+            };
+            parm[0].Value = Word;
+
+            SqlDataReader dataReader = SqlHelper.ExecuteReader(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_timkho", parm);
+
+            IList<DTO_Kho> list = new List<DTO_Kho>();
+
+            while (dataReader.Read())
+            {
+                DTO_Kho dtokho = new DTO_Kho();
+                dtokho.MAKHO = dataReader["MaKho"].ToString();
+                dtokho.TENKHO = dataReader["TenKho"].ToString();
+                dtokho.DIACHI = dataReader["DiaChi"].ToString();
+
+                list.Add(dtokho);
+            }
+
+            dataReader.Dispose();
+            return list;
+        }
+
     }
 }

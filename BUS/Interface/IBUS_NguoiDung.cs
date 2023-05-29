@@ -13,12 +13,12 @@ namespace BUS
         int Delete(string MaND);
         int Update(DTO_NguoiDung dtond);
         IList<DTO_NguoiDung> GetList();
-        //Class getClass_ID(int classID);
-        //anh phong dep trai
-        //int getclassID_Last();
+        IList<DTO_NguoiDung> Search(string Word);
         int CheckMaND(string MaND);
         int CheckTaiKhoan(string TaiKhoan);
         string GetQuyen(string TaiKhoan, string MatKhau);
+
+        string GetName(string TaiKhoan, string MatKhau);
         //IList<Class> Search(Class cls);
         //IList<Class> SearchLinq(Class cls);
         //void KetXuatWord(int ClassID, string templatePath, string exportPath);

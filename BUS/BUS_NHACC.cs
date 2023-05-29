@@ -57,5 +57,11 @@ namespace BUS
                 return dalncc.Update(dtoncc.MANHACC, Tools.ChuanHoaXau(dtoncc.TENNHACC), dtoncc.MASOTHUE, dtoncc.DIACHI, dtoncc.SODT, dtoncc.EMAIL);
             else return -1;
         }
+
+        public IList<DTO_NhaCungCap> Search(string Word)
+        {
+            return dalncc.Search(Word);
+
+        }
     }
 }

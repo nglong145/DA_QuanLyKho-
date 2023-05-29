@@ -9,8 +9,8 @@ namespace DTO
     public class DTO_HDNhap
     {
         protected string MaHDNhap;
-        protected string MaNhaCC;
-        protected string MaND;
+        protected string TenNhaCC;
+        protected string TenND;
         protected DateTime NgayNhap;
         protected string SoHoaDon;
 
@@ -19,39 +19,39 @@ namespace DTO
 
         }
 
-        public DTO_HDNhap(string MaHDNhap, string MaNhaCC, string MaND, DateTime NgayNhap, string SoHoaDon)
+        public DTO_HDNhap(string MaHDNhap, string TenNhaCC, string TenND, DateTime NgayNhap, string SoHoaDon)
         {
             this.MaHDNhap = MaHDNhap;
-            this.MaNhaCC = MaNhaCC;
-            this.MaND = MaND;
+            this.TenNhaCC = TenNhaCC;
+            this.TenND = TenND;
             this.NgayNhap = NgayNhap;
             this.SoHoaDon = SoHoaDon;
         }
 
         public string MAHDNHAP
         {
-            get { return MAHDNHAP; }
-            set { MAHDNHAP = value; }
+            get { return MaHDNhap; }
+            set { MaHDNhap = value; }
         }
-        public string MANHACC
+        public string TENNHACC
         {
-            get { return MANHACC; }
-            set { MANHACC = value; }
+            get { return TenNhaCC; }
+            set { TenNhaCC = value; }
         }
-        public string MAND
+        public string TENND
         {
-            get { return MAND; }
-            set { MAND = value; }
+            get { return TenND; }
+            set { TenND = value; }
         }
         public DateTime NGAYNHAP
         {
-            get { return NGAYNHAP; }
-            set { NGAYNHAP = value; }
+            get { return NgayNhap; }
+            set { NgayNhap = value; }
         }
         public string SOHOADON
         {
-            get { return SOHOADON; }
-            set { SOHOADON = value; }
+            get { return SoHoaDon; }
+            set { SoHoaDon = value; }
         }
     }
 }

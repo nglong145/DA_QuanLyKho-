@@ -102,9 +102,19 @@ namespace GUI.Components
             frmCustommer_Load(sender, e);
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void tsbReset_Click(object sender, EventArgs e)
         {
+            txtCusID.Text = "";
+            txtCusName.Text = "";
+            txtAddress.Text = "";
+            txtPhone.Text = "";
+        }
 
+        private void tsbSearch_Click(object sender, EventArgs e)
+        {
+            string Word = txtWord.Text;
+            IList<DTO_KhachHang> list = buskh.Search(Word);
+            dgvCustommer.DataSource = list;
         }
     }
 }

@@ -9,8 +9,8 @@ namespace DTO
     public class DTO_HDXuat
     {
         protected string MaHDXuat;
-        protected string MaKH;
-        protected string MaND;
+        protected string TenKH;
+        protected string TenND;
         protected DateTime NgayBan;
         protected string SoHoaDon;
 
@@ -19,39 +19,39 @@ namespace DTO
 
         }
 
-        public DTO_HDXuat(string MaHDXuat, string MaKH, string MaND, DateTime NgayBan, string SoHoaDon)
+        public DTO_HDXuat(string MaHDXuat, string TenKH, string TenND, DateTime NgayBan, string SoHoaDon)
         {
             this.MaHDXuat = MaHDXuat;
-            this.MaKH = MaKH;
-            this.MaND = MaND;
+            this.TenKH = TenKH;
+            this.TenND = TenND;
             this.NgayBan = NgayBan;
             this.SoHoaDon = SoHoaDon;
         }
 
         public string MAHDXUAT
         {
-            get { return MAHDXUAT; }
-            set { MAHDXUAT = value; }
+            get { return MaHDXuat; }
+            set { MaHDXuat = value; }
         }
-        public string MAKH
+        public string TENKH
         {
-            get { return MAKH; }
-            set { MAKH = value; }
+            get { return TenKH; }
+            set { TenKH = value; }
         }
-        public string MAND
+        public string TENND
         {
-            get { return MAND; }
-            set { MAND = value; }
+            get { return TenND; }
+            set { TenND = value; }
         }
         public DateTime NGAYBAN
         {
-            get { return NGAYBAN; }
-            set { NGAYBAN = value; }
+            get { return NgayBan; }
+            set { NgayBan = value; }
         }
         public string SOHOADON
         {
-            get { return SOHOADON; }
-            set { SOHOADON = value; }
+            get { return SoHoaDon; }
+            set { SoHoaDon = value; }
         }
     }
 }

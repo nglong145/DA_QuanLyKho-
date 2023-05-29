@@ -13,12 +13,8 @@ namespace BUS.Interface
         int Delete(string MaKH);
         int Update(DTO_KhachHang dtokh);
         IList<DTO_KhachHang> GetList();
-        //Class getClass_ID(int classID);
-        //anh phong dep trai
-        //int getclassID_Last();
+        IList<DTO_KhachHang> Search(string Word);
         int CheckMaKH(string MaKH);
-        //IList<Class> Search(Class cls);
-        //IList<Class> SearchLinq(Class cls);
-        //void KetXuatWord(int ClassID, string templatePath, string exportPath);
+
     }
 }

@@ -33,9 +33,10 @@ namespace GUI
             else if (val)
             {
                 string quyen = busnd.GetQuyen(txtTaiKhoan.Text, txtMatKhau.Text);
+                string ten = busnd.GetName(txtTaiKhoan.Text, txtMatKhau.Text);
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
                 this.Hide();
-                frmMain frm = new frmMain(quyen);
+                frmMain frm = new frmMain(quyen,ten);
                 frm.Show();
             }
             else

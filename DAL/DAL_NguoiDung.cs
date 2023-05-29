@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Security.Cryptography;
+using DTO;
 
 namespace DAL
 {
@@ -144,6 +145,54 @@ namespace DAL
             }
             dr.Close();
             return quyen;
+        }
+
+        public string GetName(string TaiKhoan, string MatKhau)
+        {
+            string ten = "";
+            SqlParameter[] parm = new SqlParameter[]
+            {
+                new SqlParameter(PARM_TAIKHOAN,SqlDbType.Char,30),
+                new SqlParameter(PARM_MATKHAU,SqlDbType.Char,30)
+            };
+            parm[0].Value = TaiKhoan;
+            parm[1].Value = MatKhau;
+            SqlDataReader dr = SqlHelper.ExecuteReader(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_layten", parm);
+            if (dr.Read())
+            {
+                ten = dr[0].ToString();
+            }
+            dr.Close();
+            return ten;
+        }
+
+        public IList<DTO_NguoiDung> Search(string Word)
+        {
+            SqlParameter[] parm = new SqlParameter[]
+            {
+            new SqlParameter("@word", SqlDbType.NVarChar, 100)
+            };
+            parm[0].Value = Word;
+
+            SqlDataReader dataReader = SqlHelper.ExecuteReader(SqlHelper.ConnectionString, CommandType.StoredProcedure, "sp_timnd", parm);
+
+            IList<DTO_NguoiDung> list = new List<DTO_NguoiDung>();
+
+            while (dataReader.Read())
+            {
+                DTO_NguoiDung dtond = new DTO_NguoiDung();
+                dtond.MAND = dataReader["MAND"].ToString();
+                dtond.TENND = dataReader["TENND"].ToString();
+                dtond.SODT = dataReader["SODT"].ToString();
+                dtond.EMAIL = dataReader["EMAIL"].ToString();
+                dtond.TAIKHOAN = dataReader["TAIKHOAN"].ToString();
+                dtond.MATKHAU = dataReader["MATKHAU"].ToString();
+                dtond.TRANGTHAI = dataReader["TRANGTHAI"].ToString();
+                list.Add(dtond);
+            }
+
+            dataReader.Dispose();
+            return list;
         }
     }
 }
